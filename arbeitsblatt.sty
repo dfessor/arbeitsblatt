@@ -1,0 +1,113 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{arbeitsblatt}[2019/05/15 Arbeitsblatt]
+% This Package requires the exam-class to work!
+
+\RequirePackage[naustrian]{babel} % Multilingual support
+\RequirePackage[utf8]{inputenc} % Accept different input encodings (other than Ascii)
+\RequirePackage{color} % For answerboxes
+%\RequirePackage{hyperref} % Make TOC clickable
+% \RequirePackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+% \RequirePackage{anysize} % Obsolete. Use typearea instead
+% \RequirePackage{graphicx} % for Pictures
+% \RequirePackage{url} % allows Urls
+% \RequirePackage{amsmath} % advanced Maths system
+% \RequirePackage{wrapfig} % for wrapfigure
+% \RequirePackage{pdfpages} % to include pdfs in document
+% \RequirePackage{float} % Improved interface for floating objects
+% \RequirePackage{caption} % Customising captions in floating environments
+% \RequirePackage{subcaption} % Support for sub-captions
+
+\printanswers
+\DeclareOption{answers}{\printanswers}
+\DeclareOption{noanswers}{\noprintanswers}
+
+\addpoints % if you want to count the points
+% \noaddpoints % if you don't want to count the points
+
+% Specifies the way question are displayed:
+%\qformat{\textbf{Exp. \thequestion: \thequestiontitle}\hfill}
+%\bonusqformat{\textbf{Bonusaufgabe \thequestion}\hfill}
+
+\definecolor{SolutionColor}{rgb}{0.8,0.9,1} % light blue
+\shadedsolutions % defines the style of the solution environment
+% \framedsolutions % defines the style of the solution environment
+% Defines the title of the solution environment:
+\renewcommand{\solutiontitle}{\noindent\textbf{Antwort:}\par\noindent}
+
+% Language
+\pointpoints{Punkt}{Punkte}
+\bonuspointpoints{Bonuspunkt}{Bonuspunkte}
+\chqword{Aufgabe:}
+\chpgword{Seite:}
+\chpword{Punkte:}
+\chbpword{Bonuspunkte:}
+\chsword{Erreicht:}
+\chtword{Summe:}
+
+\hqword{Aufgabe:}
+\hpgword{Seite:}
+\hpword{Punkte:}
+\hsword{Erreicht:}
+\htword{Summe:}
+
+% Variables/Options
+\newcommand{\group}{A}
+\DeclareOption{A}{\renewcommand{\group}{A}}
+\DeclareOption{B}{\renewcommand{\group}{B}}
+\DeclareOption{C}{\renewcommand{\group}{C}}
+\DeclareOption{D}{\renewcommand{\group}{D}}
+
+
+\newcommand{\class}{Mathematik}
+\DeclareOption{M}{\renewcommand{\class}{Mathematik}}
+\DeclareOption{PH}{\renewcommand{\class}{Physik}}
+
+\newcommand{\grade}{1}
+\DeclareOption{1}{\renewcommand{\grade}{1}}
+\DeclareOption{2}{\renewcommand{\grade}{2}}
+\DeclareOption{3}{\renewcommand{\grade}{3}}
+\DeclareOption{4}{\renewcommand{\grade}{4}}
+\DeclareOption{5}{\renewcommand{\grade}{5}}
+\DeclareOption{6}{\renewcommand{\grade}{6}}
+\DeclareOption{7}{\renewcommand{\grade}{7}}
+\DeclareOption{8}{\renewcommand{\grade}{8}}
+
+\newcommand{\teacher}{TEACHER}
+\newcommand{\texttype}{Arbeitsblatt}
+\newcommand{\topic}{TOPIC}
+
+% Font
+\DeclareOption{sans}{\renewcommand{\familydefault}{\sfdefault}}
+
+\ExecuteOptions{answers}
+\ProcessOptions\relax
+
+% Header and Footer
+\pagestyle{headandfoot}
+\firstpageheadrule
+\firstpagefootrule
+%\runningheadrule
+\runningfootrule
+\firstpageheader{\texttype\ -- \group}{\topic}{Datum: $\rule{2cm}{0.15mm}$}
+\firstpagefooter{\class\ -- \grade. Klasse}{Seite \thepage\ von \numpages}{Prof. \teacher}
+\runningheader{}{}{}
+\runningfooter{\class\ -- \grade. Klasse}{Seite \thepage\ von \numpages}{Prof. \teacher}
+
+\newcommand{\nameclass}{
+	\begin{center}
+	        \begin{minipage}[c][][s]{.75\textwidth}
+                \makebox[\textwidth]{Name und Klasse:\enspace\hrulefill}
+        \end{minipage}
+	\end{center}
+}
+\newcommand{\intro}[1]{
+	\begin{center}
+		\fbox{\fbox{\parbox{.75\textwidth}{\centering
+			{#1}\\
+		\textbf{Viel Erfolg!}
+		}}}
+	\end{center}
+}
+
+\endinput
+
