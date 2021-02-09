@@ -75,6 +75,7 @@
 \newcommand{\teacher}{TEACHER}
 \newcommand{\texttype}{Arbeitsblatt}
 \newcommand{\topic}{TOPIC}
+\newcommand{\righttype}{Datum: }
 
 % Font
 \DeclareOption{sans}{\renewcommand{\familydefault}{\sfdefault}}
@@ -88,7 +89,7 @@
 \firstpagefootrule
 %\runningheadrule
 \runningfootrule
-\firstpageheader{\texttype\ -- \group}{\topic}{Datum: $\rule{2cm}{0.15mm}$}
+\firstpageheader{\texttype\ -- \group}{\topic}{\righttype $\rule{2cm}{0.15mm}$}
 \firstpagefooter{\class\ -- \grade. Klasse}{Seite \thepage\ von \numpages}{Prof. \teacher}
 \runningheader{}{}{}
 \runningfooter{\class\ -- \grade. Klasse}{Seite \thepage\ von \numpages}{Prof. \teacher}
